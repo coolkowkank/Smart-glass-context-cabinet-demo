@@ -1,6 +1,6 @@
 # Publishes the glasses UI to GitHub Pages in offline mode (no backend),
 # so anyone can click through the storyboard from a link.
-# Enable once: repo Settings → Pages → Source: "GitHub Actions".
+# The workflow auto-enables Pages via actions/configure-pages.
 name: Deploy offline demo to Pages
 
 on:
@@ -33,6 +33,8 @@ jobs:
           VITE_OFFLINE: "true"
           VITE_BASE: /${{ github.event.repository.name }}/
       - uses: actions/configure-pages@v5
+        with:
+          enablement: true
       - uses: actions/upload-pages-artifact@v3
         with:
           path: frontend/dist
