@@ -24,6 +24,19 @@ Address every entry "Coordinator -> <seat>" or "<seat> -> Coordinator", one
 item per entry, newest on top. Raw URL for sessions that fetch:
 `https://raw.githubusercontent.com/coolkowkank/Smart-glass-context-cabinet-demo/main/team/coordination.md`
 
+## Board rules for writers
+
+- Append only: add your entry under the right heading, newest on top; never
+  rewrite, reorder or delete entries you did not write.
+- Re-read the current board from `main` immediately before every write and
+  note its head commit. If the board changed since your read, discard your
+  draft and apply your addition to the fresh version. Never overwrite
+  entries others added in between.
+- A compaction request names the board head it is based on. If `main` has
+  moved past that head when the compacted result arrives, the Coordinator
+  re-applies the compaction to the fresh board or asks again; the stale
+  result is never committed as-is.
+
 ## Open
 
 (none)

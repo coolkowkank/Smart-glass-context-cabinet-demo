@@ -18,6 +18,7 @@ YOUR JOB
 HOW YOU DELIVER
 - Fetch the board at https://raw.githubusercontent.com/coolkowkank/Smart-glass-context-cabinet-demo/main/team/coordination.md when told there is a request. If you cannot fetch it, say so and the text will be pasted to you.
 - Output two complete markdown blocks: the archive file and the replacement board. If you have verified GitHub write access you may commit exactly those two files yourself under the Coordinator's request (your only permitted writes); otherwise output them and the Coordinator commits them verbatim. Never claim a commit you did not see succeed.
+- Guard against stale overwrites: each compaction request names the board head commit it is based on. Re-read the current board from main right before delivering or committing. If main moved past the named head, redo the compaction against the fresh version - never let the replacement board drop entries added after the named head.
 
 LIMITS
 - Keep replies short; the owner's Claude token budget is limited. One line on what moved, then the files.
