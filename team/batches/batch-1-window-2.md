@@ -2,14 +2,22 @@
 
 > No AI writes without holding the written turn token. One batch per turn.
 
-TURN: Coordinator (provisional build) - transfers to Builder on acceptance
+TURN: Coordinator (implementing) - Builder accepted via i2i 3 Nov 2026, but transfer is on hold until her write path is confirmed; she holds a no-write gate until an explicit clean handoff
 
 ## Batch
 
 - Issued by: Coordinator
-- Assigned to: Builder (Christina's Instinct) - acceptance requested via
-  Instinct-to-Instinct; the Coordinator executes provisionally on the
-  branch until the Builder accepts, then hands over at the branch head.
+- Assigned to: Builder (Christina's Instinct) - accepted via
+  Instinct-to-Instinct 3 Nov 2026, bounded to branch-only pushes. Her
+  write path is not yet confirmed executable, so the Coordinator keeps
+  implementing for now; transfer happens only at an explicit clean
+  handoff with a verified head. Branch head at acceptance: `d1cb17c9`
+  (no Coordinator code on it at that point).
+- Scope amendment (Coordinator, 3 Nov 2026): window 2 is self-driven - its
+  own stepper walks the storyboard moments (demoState per step), so it
+  runs standalone. Live follow-along with window 1 (cross-window sync
+  wiring) is part of the window-3 batch, not this one, keeping the two
+  batches on disjoint files.
 - Batch scope: **Window 2 - Context Cabinet card view.** A standalone
   staged view in this repository that shows the Cabinet as context cards
   that appear, change and reorganise in step with the window-1 story

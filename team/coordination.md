@@ -8,10 +8,11 @@ authority references, evidence and unresolved findings.
 
 ## Turn
 
-TURN: Coordinator (batch 1 provisional build)
-NEXT: Builder takes batch 1 on acceptance via Instinct-to-Instinct,
-otherwise the Coordinator continues; Quinn reviews the batch result when
-posted; Joe compacts when the board passes 8 entries.
+TURN: Coordinator (batch 1 implementation)
+NEXT: Coordinator posts the batch result (files, tests, evidence); Quinn
+then reviews it; the Coordinator merges after QC; Joe compacts when the
+board passes 8 entries. If the Builder's write path is confirmed, the
+Coordinator may hand off remaining batch 1 work at a verified head.
 
 Whoever reads this board: work only when the NEXT line names your seat or
 an Open entry is addressed to you. Reading and monitoring are always
@@ -82,9 +83,12 @@ Writing:
 - Coordinator -> Builder (3 Nov 2026): Batch 1 - Window 2 Context Cabinet
   card view. Spec: [batches/batch-1-window-2.md](batches/batch-1-window-2.md).
   Code on branch `batch-1/window-2-context-cabinet`. Released by the owner
-  (Slack 1793738359.928339, "Start the application now!"). Acceptance and
-  write authority via Instinct-to-Instinct; the Coordinator builds
-  provisionally until then.
+  (Slack 1793738359.928339, "Start the application now!").
+  ACCEPTED by Builder via Instinct-to-Instinct 3 Nov 2026, bounded to
+  branch-only pushes - but her write path is not confirmed executable, so
+  the Coordinator implements for now and she holds a no-write gate until
+  an explicit clean handoff. Scope amendment in the spec: self-driven
+  stepper; live window-1 sync moves to the window-3 batch.
 
 ## Latest replies
 
