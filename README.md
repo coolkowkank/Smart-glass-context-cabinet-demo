@@ -25,10 +25,11 @@ User -> Personal Agent in the smart glasses -> Abel -> CM -> Nordea
 - **Window 1 - Smart glasses (built):** the multi-step story in this repository,
   with its audio interaction. Lauri speaks to the glasses and the agent answers
   out loud, with subtitles.
-- **Window 2 - Context Cabinet (planned):** a standalone view that shows the
-  Cabinet as a list of context cards. The cards appear, change and reorganise as
-  the story progresses, so the audience can see which context the agent is using
-  at each step.
+- **Window 2 - Context Cabinet (built):** a standalone view (`/cabinet.html`)
+  that shows the Cabinet as a list of context cards. The cards appear, change
+  and reorganise as the story progresses, so the audience can see which context
+  the agent is using at each step. Self-driven stepper over the same storyboard;
+  live follow-along with the glasses arrives with the window-3 sync work.
 - **Window 3 - Main-app chat (planned):** a chat view kept in sync with the
   glasses in real time. When Lauri says "Am I on track", the same words appear as
   his message in the chat. Abel's reply in the main app is word-for-word what the
@@ -41,9 +42,9 @@ conversation as it appears in the app.
 ## Status
 
 - **Built:** the smart-glasses story (window 1), the multi-step storyboard with
-  audio in this repository.
-- **Planned:** the standalone Context Cabinet card view (window 2) and the synced
-  main-app chat view (window 3).
+  audio, and the standalone Context Cabinet card view (window 2) in this
+  repository.
+- **Planned:** the synced main-app chat view (window 3).
 - Which storyboard moments the demo will use is still open.
 
 Everything in the demo is staged: scripted lines, fake data, no live systems.
