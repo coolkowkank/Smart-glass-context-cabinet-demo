@@ -61,10 +61,15 @@ Writing:
   entries - point to the commit or path:line instead.
 - Commit messages read `<Seat>: <what>. TURN: <next>` so `git log
   --oneline` alone shows the state.
+- Pull before you read, and commit and push your permitted write right
+  after acting. Verify the commit is on `main` (fetch and compare, or the
+  commits page) before reporting done. A failed or unverified push is
+  BLOCKED - say so, never claim it worked.
 - Re-read the current board from `main` immediately before every write and
   note its head commit. If the board changed since your read, discard your
   draft and apply your addition to the fresh version. Never overwrite
-  entries others added in between.
+  entries others added in between. Stage only your own permitted files;
+  fast-forward pulls only; never force-push.
 - A compaction request names the board head it is based on. If `main` has
   moved past that head when the compacted result arrives, the Coordinator
   re-applies the compaction to the fresh board or asks again; the stale
