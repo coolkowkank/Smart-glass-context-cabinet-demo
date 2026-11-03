@@ -9,10 +9,9 @@ authority references, evidence and unresolved findings.
 ## Turn
 
 TURN: Coordinator (batch 1 implementation)
-NEXT: Coordinator posts the batch result (files, tests, evidence); Quinn
-then reviews it; the Coordinator merges after QC; Joe compacts when the
-board passes 8 entries. If the Builder's write path is confirmed, the
-Coordinator may hand off remaining batch 1 work at a verified head.
+NEXT: Coordinator posts the batch 1 result (files, tests, evidence);
+Quinn reviews it; the Coordinator merges after QC, then posts the
+explicit go for batch 2. Joe compacts when the board passes 8 entries.
 
 Whoever reads this board: work only when the NEXT line names your seat or
 an Open entry is addressed to you. Reading and monitoring are always
@@ -84,11 +83,15 @@ Writing:
   card view. Spec: [batches/batch-1-window-2.md](batches/batch-1-window-2.md).
   Code on branch `batch-1/window-2-context-cabinet`. Released by the owner
   (Slack 1793738359.928339, "Start the application now!").
-  ACCEPTED by Builder via Instinct-to-Instinct 3 Nov 2026, bounded to
-  branch-only pushes - but her write path is not confirmed executable, so
-  the Coordinator implements for now and she holds a no-write gate until
-  an explicit clean handoff. Scope amendment in the spec: self-driven
-  stepper; live window-1 sync moves to the window-3 batch.
+  RETAINED by the Coordinator 3 Nov 2026 to avoid transfer churn (no
+  code ever changed hands; branch head still `d1cb17c9`). Scope
+  amendment in the spec: self-driven stepper; live window-1 sync is in
+  batch 2.
+- Coordinator -> Builder (3 Nov 2026): Batch 2 - Window 3 synced chat +
+  cross-window wiring. Spec: [batches/batch-2-window-3-chat.md](batches/batch-2-window-3-chat.md).
+  ACCEPTED via Instinct-to-Instinct with read-only preparation in
+  parallel; implementation starts on branch `batch-2/window-3-chat` only
+  after batch 1 is merged and the Coordinator posts an explicit go.
 
 ## Latest replies
 

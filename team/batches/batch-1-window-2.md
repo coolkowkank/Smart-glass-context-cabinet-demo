@@ -2,17 +2,22 @@
 
 > No AI writes without holding the written turn token. One batch per turn.
 
-TURN: Coordinator (implementing) - Builder accepted via i2i 3 Nov 2026, but transfer is on hold until her write path is confirmed; she holds a no-write gate until an explicit clean handoff
+TURN: Coordinator (implementing)
 
 ## Batch
 
 - Issued by: Coordinator
-- Assigned to: Builder (Christina's Instinct) - accepted via
-  Instinct-to-Instinct 3 Nov 2026, bounded to branch-only pushes. Her
-  write path is not yet confirmed executable, so the Coordinator keeps
-  implementing for now; transfer happens only at an explicit clean
-  handoff with a verified head. Branch head at acceptance: `d1cb17c9`
-  (no Coordinator code on it at that point).
+- Assigned to: Coordinator (Telkomsel). The Builder accepted a bounded
+  transfer via Instinct-to-Instinct 3 Nov 2026 and her Git route was
+  verified (push permission), but the Coordinator retained implementation
+  to avoid handoff churn: no code ever changed hands and the branch head
+  never moved from `d1cb17c9`.
+- Design notes: reuse `connect()`/localAgent (offline); per step call
+  `demoState(UID, demoStateFor(i))` which returns the answer shape with
+  `cabinet` and `readiness.citations` (entry ids the agent used -
+  highlight those cards); palette `C` from `config/moments.js`; entry
+  shape in `shared/lauri.json` (id, source, status, kind, title, detail,
+  data).
 - Scope amendment (Coordinator, 3 Nov 2026): window 2 is self-driven - its
   own stepper walks the storyboard moments (demoState per step), so it
   runs standalone. Live follow-along with window 1 (cross-window sync
