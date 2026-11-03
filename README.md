@@ -10,10 +10,9 @@ wrong signal, the same question gets a better answer.
 
 ## The presentation demo: one story, three windows
 
-> Status: agreed concept. Window 1 exists in this repository; windows 2 and 3 are
-> planned. This is a scripted audience demonstration, not a working system: it
-> runs on fake data and staged responses, with no real backend integration
-> behind it.
+> Status: all three windows are built and synced. This is a scripted audience
+> demonstration, not a working system: it runs on fake data and staged
+> responses, with no real backend integration behind it.
 
 For presentations, the same scripted story plays across **three windows on one
 computer**, following the agreed flow:
@@ -28,12 +27,12 @@ User -> Personal Agent in the smart glasses -> Abel -> CM -> Nordea
 - **Window 2 - Context Cabinet (built):** a standalone view (`/cabinet.html`)
   that shows the Cabinet as a list of context cards. The cards appear, change
   and reorganise as the story progresses, so the audience can see which context
-  the agent is using at each step. Self-driven stepper over the same storyboard;
-  live follow-along with the glasses arrives with the window-3 sync work.
-- **Window 3 - Main-app chat (planned):** a chat view kept in sync with the
-  glasses in real time. When Lauri says "Am I on track", the same words appear as
-  his message in the chat. Abel's reply in the main app is word-for-word what the
-  glasses reply, at the same moment.
+  the agent is using at each step. Self-driven stepper over the same storyboard,
+  or live follow-along with the glasses in follow mode.
+- **Window 3 - Main-app chat (built):** the same conversation as chat messages,
+  kept in sync with the glasses in real time. When Lauri says "Am I on track",
+  the same words appear as his message in the chat. Abel's reply in the main app
+  is word-for-word what the glasses reply, at the same moment.
 
 The audience watches one conversation from three angles at once: what the user
 experiences through the glasses, which context the agent is reading, and the
@@ -85,10 +84,12 @@ The same runbook also lives in [RUNNING.md](RUNNING.md).
 
 ## Status
 
-- **Built:** the smart-glasses story (window 1), the multi-step storyboard with
-  audio, and the standalone Context Cabinet card view (window 2) in this
-  repository.
-- **Planned:** the synced main-app chat view (window 3).
+- **Built and verified:** the smart-glasses story (window 1), the Context
+  Cabinet card view (window 2) and the synced main-app chat (window 3). The
+  three windows stay in sync over a BroadcastChannel, and the offline demo
+  passes its test suite, production build and a fresh-clone startup.
+- **Optional, not yet verified:** the FastAPI backend mode, window 1 audio
+  (speech in/out) and `npm run build:single` single-file packaging.
 - Which storyboard moments the demo will use is still open.
 
 Everything in the demo is staged: scripted lines, fake data, no live systems.
