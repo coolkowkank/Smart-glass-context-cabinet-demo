@@ -1,0 +1,22 @@
+:root { --navy:#00005E; --green:#10B981; --blue:#4599FF; --cyan:#00D2FF; --grey:#9CA3AF; --ink:#061417;
+  --font:'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif; color-scheme: dark }
+html, body { margin: 0; background: var(--ink); color: #fff; font-family: var(--font); -webkit-font-smoothing: antialiased }
+.chat { max-width: 560px; margin: 0 auto; min-height: 100vh; display: flex; flex-direction: column; padding: 24px 18px 28px; box-sizing: border-box }
+.chat-head { display: flex; justify-content: space-between; align-items: flex-start; gap: 12px }
+.chat-head h1 { margin: 0; font-size: 26px; letter-spacing: -.5px }
+.sub { margin: 4px 0 0; color: var(--grey); font-size: 13px }
+.link { font-size: 12px; color: var(--grey); border: 1px solid rgba(255,255,255,.18); border-radius: 999px; padding: 4px 10px; white-space: nowrap }
+.link.on { color: var(--green); border-color: rgba(16,185,129,.6) }
+.chat-moment { margin: 16px 0 4px; font-size: 12px; color: var(--cyan); font-weight: 700; letter-spacing: .5px }
+.chat-thread { flex: 1; display: flex; flex-direction: column; gap: 14px; padding: 16px 0; overflow-y: auto }
+.chat-empty { color: var(--grey); font-size: 14px; text-align: center; margin-top: 40px }
+.row { display: flex; flex-direction: column; max-width: 82%; animation: pop .25s ease-out }
+.row.user { align-self: flex-end; align-items: flex-end }
+.row.agent { align-self: flex-start; align-items: flex-start }
+.who { font-size: 11px; color: var(--grey); margin: 0 6px 3px }
+.bubble { padding: 10px 14px; border-radius: 18px; font-size: 15px; line-height: 1.4; white-space: pre-wrap }
+.row.user .bubble { background: var(--green); color: #04130e; border-bottom-right-radius: 6px; font-weight: 500 }
+.row.agent .bubble { background: rgba(69,153,255,.16); border: 1px solid rgba(69,153,255,.4); border-bottom-left-radius: 6px }
+.chat-foot { color: var(--grey); font-size: 11px; text-align: center; margin-top: 8px }
+@keyframes pop { from { opacity: 0; transform: translateY(6px) } to { opacity: 1; transform: none } }
+@media (prefers-reduced-motion: reduce) { .row { animation: none } }

@@ -3,6 +3,7 @@ import Icon from '../components/Icon'
 import { Parts } from '../components/Overlays'
 import { C, MOMENTS, UID, demoStateFor, fromBubble } from '../config/moments'
 import { connect } from '../lib/api'
+import { openBus } from '../lib/bus'
 import { cardsFrom, kindIcon, sourceLabel, usedIds } from './model'
 import './cabinet.css'
 
@@ -34,6 +35,9 @@ function Card({ card }) {
   )
 }
 
+// /cabinet.html?follow=1 opens in follow mode (mirrors window 1).
+const initialFollow = () => new URLSearchParams(window.location.search).get('follow') === '1'
+
 // Deep-link a moment for presenters: /cabinet.html?m=3 opens at the 4th.
 const initialM = () => {
   const n = parseInt(new URLSearchParams(window.location.search).get('m') || '0', 10)
@@ -47,6 +51,9 @@ export default function CabinetApp() {
   const [answer, setAnswer] = useState(null)
   const [playing, setPlaying] = useState(false)
   const [err, setErr] = useState(null)
+  // Follow mode: render window 1's state from the bus instead of stepping on our own.
+  const [follow, setFollow] = useState(initialFollow)
+  const [linked, setLinked] = useState(false)
   const apiRef = useRef(null)
   apiRef.current = api
 
@@ -54,20 +61,41 @@ export default function CabinetApp() {
 
   const goto = async (i) => {
     const a = apiRef.current
-    if (!a || i < 0 || i >= MOMENTS.length) return
+    if (follow || !a || i < 0 || i >= MOMENTS.length) return
     const res = await a.demoState(UID, demoStateFor(i))
     setM(i)
     setCabinet(res.cabinet)
     setAnswer(res)
   }
-  useEffect(() => { if (api) goto(initialM()) }, [api])
+  useEffect(() => { if (api && !follow) goto(initialM()) }, [api]) // eslint-disable-line react-hooks/exhaustive-deps
 
   // Auto-play: advance through the storyboard like the glasses story does.
   useEffect(() => {
-    if (!playing || !api) return
+    if (!playing || !api || follow) return
     const t = setTimeout(() => goto((m + 1) % MOMENTS.length), 6000)
     return () => clearTimeout(t)
-  }, [playing, m, api])
+  }, [playing, m, api, follow])
+
+  // Follow mode: listen to window 1. hello asks for a snapshot; channel is closed on cleanup (StrictMode-safe).
+  useEffect(() => {
+    if (!follow) { setLinked(false); return undefined }
+    const bus = openBus((ev) => {
+      if (ev.type === 'snapshot' || ev.type === 'state') {
+        if (typeof ev.m === 'number') setM(Math.min(Math.max(ev.m, 0), MOMENTS.length - 1))
+        if (ev.cabinet) setCabinet(ev.cabinet)
+        if (ev.answer) setAnswer(ev.answer)
+        setLinked(true)
+      } else if (ev.type === 'moment' && typeof ev.m === 'number') {
+        setM(Math.min(Math.max(ev.m, 0), MOMENTS.length - 1))
+      }
+    })
+    const ask = () => bus.post({ type: 'hello' })
+    ask()
+    const t = setInterval(() => { if (!linkedRef.current) ask() }, 2000)
+    return () => { clearInterval(t); bus.close() }
+  }, [follow])
+  const linkedRef = useRef(false)
+  linkedRef.current = linked
 
   const citations = usedIds(answer)
   const { cited, other, archived } = cardsFrom(cabinet, citations)
@@ -83,9 +111,11 @@ export default function CabinetApp() {
           <p className="sub">Window 2 - what the agent can read · concept demo, fictional data</p>
         </div>
         <div className="stepper">
-          <button onClick={() => goto(m - 1)} disabled={!api || m === 0} aria-label="Previous moment"><Icon name="left" size={18} /></button>
-          <button onClick={() => goto(m + 1)} disabled={!api || m === MOMENTS.length - 1} aria-label="Next moment"><Icon name="right" size={18} /></button>
-          <button className={`play ${playing ? 'on' : ''}`} onClick={() => setPlaying(!playing)}>{playing ? 'Pause' : 'Play'}</button>
+          <button className={`follow ${follow ? 'on' : ''}`} onClick={() => setFollow(!follow)} aria-pressed={follow}
+            title="Mirror the glasses window">{follow ? (linked ? 'Following glasses' : 'Waiting for glasses') : 'Follow glasses'}</button>
+          <button onClick={() => goto(m - 1)} disabled={follow || !api || m === 0} aria-label="Previous moment"><Icon name="left" size={18} /></button>
+          <button onClick={() => goto(m + 1)} disabled={follow || !api || m === MOMENTS.length - 1} aria-label="Next moment"><Icon name="right" size={18} /></button>
+          <button className={`play ${playing ? 'on' : ''}`} disabled={follow} onClick={() => setPlaying(!playing)}>{playing ? 'Pause' : 'Play'}</button>
         </div>
       </header>
 
