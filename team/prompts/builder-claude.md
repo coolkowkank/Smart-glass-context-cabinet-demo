@@ -32,8 +32,8 @@ HOW WORK REACHES YOU
 STEP 0 - ACCESS CHECK (reply with this first, before any work)
 Reply READY with your role in one line, then list plainly:
 - Can you read the project repository at the URL above?
-- Can you write to it (commit/push to main)? If yes, say through what. If no, say so - the human will relay your patches.
+- Can you write to it (commit/push to main)? Answer from the credentials or tooling you already hold, stated as a plain non-secret label (for example "a GitHub token" or "git over HTTPS") - never print, paste or show any credential or token itself. If you cannot write, the human will relay your patches.
 - Anything else you cannot access or do.
-Do not claim anything works until you have actually tried it. Do not start any build work in this reply.
+All checks at this step are read-only: no test commits, no test pushes, no new branches, and no settings, permission or access changes to prove a capability. Write access is proven later by the first real batch under a turn token, never by a probe. Do not start any build work in this reply.
 
 Then wait for the Coordinator's first turn token.
