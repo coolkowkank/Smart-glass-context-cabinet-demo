@@ -8,6 +8,36 @@ corrects a wrong signal, the same question gets a better answer.
 
 > Concept demo. Nordea is used as a plain-text wordmark only; all customer data is fictional.
 
+## Planned: three-window presentation demo (mockup)
+
+> Status: agreed concept, not built yet. This section describes a scripted
+> audience demonstration, not a working system. It will run on fake data and
+> staged responses; there is no real backend integration behind it.
+
+For presentations, the same scripted story plays across **three windows on one
+computer**, following the agreed flow:
+
+```
+User -> Personal Agent in the smart glasses -> Abel -> CM -> Nordea
+```
+
+- **Window 1 - Smart glasses (already built):** the existing multi-step story in
+  this repository, with its audio interaction. Lauri speaks to the glasses and
+  the agent answers out loud, with subtitles.
+- **Window 2 - Context Cabinet (planned):** a standalone view that shows the
+  Cabinet as a list of context cards. The cards appear, change and reorganise
+  as the story progresses, so the audience can see which context is being used
+  at each step.
+- **Window 3 - Main-app chat (planned):** a chat view kept in sync with the
+  glasses in real time. When Lauri says "Am I on track", the same words appear
+  as his message in the chat. Abel's reply in the main app is word-for-word what
+  the glasses reply, at the same moment.
+
+The audience watches one conversation from three angles at once: what the user
+experiences through the glasses, which context the agent is reading, and the
+conversation as it appears in the app. Which storyboard moments the demo will
+use is still open.
+
 ### What you see
 
 - **The world:** a real street photo (`frontend/src/assets/street.jpg`) seen through a rounded glasses lens.
