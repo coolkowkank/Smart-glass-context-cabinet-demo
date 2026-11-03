@@ -45,9 +45,21 @@ TURN: Coordinator (implementing)
 
 ## Result
 
-- Files changed: (pending)
-- Tests run and results: (pending)
-- Evidence: (pending)
+- Files changed: `frontend/cabinet.html`,
+  `frontend/src/cabinet/{main.jsx,CabinetApp.jsx,cabinet.css,model.js,model.test.js}`,
+  `frontend/vite.config.js` (multi-page input: `main` + `cabinet`),
+  `README.md` (window 2 status).
+- Tests run and results: `vitest run` 41/41 pass (5 new cabinet model
+  tests); `vite build` passes and emits both pages.
+- Evidence: Coordinator visual check (headless Chrome against
+  `vite preview`): M1 shows the wrong car-goal answer with the four
+  starter cards; M3 shows "On track - ~14 mo" with Flat goal, Salary,
+  ASP and Dining pulled into "Used in this answer" (cyan highlight) and
+  the car goal in Archived; M5 shows the empty start state before
+  add-by-hand; window 1 regression screenshot unchanged.
+- Known limitation: the stepper shows each moment's START state;
+  intra-moment interactions (add, sync) arrive with the batch-2 follow
+  mode. Deep-link: `/cabinet.html?m=N`.
 
 ## Handoff
 

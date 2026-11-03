@@ -32,6 +32,32 @@ TURN: Coordinator (batch 1 first; Builder prepares batch 2 read-only)
   touched by both batches (separate page inputs); the Coordinator
   resolves the merge at integration.
 
+## Interface contract (settled 3 Nov 2026)
+
+- Bus: `BroadcastChannel('smartglass-demo')`, same origin/port via
+  `npm run dev`; the three windows are `index.html`, `cabinet.html`,
+  `chat.html`. Multi-page build only; `build:single` stays window-1-only.
+- Window 1 (`App.jsx`) emits its ACTUAL composed captions - voice,
+  listen and free-answer flows included - from the same view object it
+  renders, never reconstructed from MOMENTS; empty captions are skipped.
+  Message types: `snapshot` (moment index, cabinet, answer, current
+  caption) on load and in reply to `hello`; `caption` (incremental, with
+  the dim flag); `moment` (index); `reset` (story restarted - receivers
+  clear and rebuild from the next snapshot).
+- Late join/reload: a window sends `hello`; window 1 answers with
+  `snapshot`. StrictMode-safe: channels are created and closed in effect
+  cleanup; broadcasts are idempotent.
+- Window 2 follow mode: a toggle in CabinetApp; in follow mode it renders
+  from bus `snapshot`/`state` messages instead of its own localAgent
+  stepping (self-driven stepper stays the default and fallback).
+- Startup modes unchanged: `connect()` uses the backend when reachable
+  and the offline localAgent otherwise; broadcasting works in both;
+  backend/docker is not required for the demo.
+- Ownership at go: batch 2 takes `frontend/vite.config.js` (adds the
+  `chat` input) and the CabinetApp follow-mode hook after the batch-1
+  merge; `config/moments.js` (MOMENTS/demoStateFor) stays
+  Coordinator-owned on main, unchanged by both batches.
+
 ## Result
 
 - Files changed: (pending)
