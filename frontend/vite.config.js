@@ -1,3 +1,4 @@
+import { fileURLToPath } from 'url'
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 import tailwindcss from '@tailwindcss/vite'
@@ -14,6 +15,15 @@ export default defineConfig({
     fs: { allow: ['..'] },
   },
   // build:single inlines every asset (the street photo too) so the page is one file.
-  build: { assetsInlineLimit: process.env.SINGLE_FILE ? 100_000_000 : 4096 },
+  build: {
+    assetsInlineLimit: process.env.SINGLE_FILE ? 100_000_000 : 4096,
+    // Multi-page: index.html is window 1 (glasses), cabinet.html is window 2.
+    rollupOptions: {
+      input: {
+        main: fileURLToPath(new URL('./index.html', import.meta.url)),
+        cabinet: fileURLToPath(new URL('./cabinet.html', import.meta.url)),
+      },
+    },
+  },
   test: { environment: 'node' },
 })
