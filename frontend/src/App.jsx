@@ -18,6 +18,8 @@ const ASK_MS = 1700 // Lauri's question shows this long before the agent answers
 import { connect } from './lib/api'
 import { listenOnce } from './lib/speech'
 import { speak, stopSpeaking } from './lib/tts'
+import { openBus } from './lib/bus'
+import { reduceThread } from './chat/thread'
 
 const UI0 = { xray: null, notRight: false, voice: null, flying: false, notice: null, scan: null, signals: [], lastAddedId: null, pinSecs: null, free: null, sync: null, asking: false, answered: false, addSheet: null, contributing: false, flinging: false, cabToast: null }
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms))
@@ -388,6 +390,30 @@ export default function App() {
     speak(capText)
   }, [view.caption.key, voiceOut]) // eslint-disable-line react-hooks/exhaustive-deps
   useEffect(() => { if (!voiceOut) stopSpeaking() }, [voiceOut])
+
+  // ---- cross-window sync (window 3 chat, window 2 follow) -----------------------
+  // Additive: broadcasts what this window actually shows. Captions are the composed view
+  // caption, only while visible (hidden under the Cabinet / airlock / x-ray, like the glasses).
+  const busRef = useRef(null)
+  const threadLog = useRef([])
+  const latest = useRef({})
+  const captionHidden = !!ui.xray || !!ui.sync || cabOpen
+  latest.current = { m, cabinet, answer, thread: threadLog.current }
+  const emit = (ev) => { threadLog.current = reduceThread(threadLog.current, ev); busRef.current?.post(ev) }
+  useEffect(() => {
+    const bus = openBus((ev) => {
+      if (ev.type === 'hello') bus.post({ type: 'snapshot', ...latest.current, thread: threadLog.current })
+    })
+    busRef.current = bus
+    bus.post({ type: 'snapshot', ...latest.current, thread: threadLog.current })
+    return () => { bus.close(); if (busRef.current === bus) busRef.current = null }
+  }, [])
+  useEffect(() => { if (m === 0) emit({ type: 'reset' }); emit({ type: 'moment', m }) }, [m]) // eslint-disable-line react-hooks/exhaustive-deps
+  useEffect(() => {
+    if (captionHidden || !capText.trim()) return
+    emit({ type: 'caption', m, key: view.caption.key, dim: !!view.caption.dim, text: capText })
+  }, [m, view.caption.key, capText, captionHidden]) // eslint-disable-line react-hooks/exhaustive-deps
+  useEffect(() => { busRef.current?.post({ type: 'state', m, cabinet, answer }) }, [cabinet, answer]) // eslint-disable-line react-hooks/exhaustive-deps
 
   const wake = () => { setAwake(true); clearTimeout(awakeT.current); awakeT.current = setTimeout(() => setAwake(false), 2500) }
 

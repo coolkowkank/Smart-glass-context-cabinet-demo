@@ -17,11 +17,12 @@ export default defineConfig({
   // build:single inlines every asset (the street photo too) so the page is one file.
   build: {
     assetsInlineLimit: process.env.SINGLE_FILE ? 100_000_000 : 4096,
-    // Multi-page: index.html is window 1 (glasses), cabinet.html is window 2.
+    // Multi-page: index.html is window 1 (glasses), cabinet.html is window 2, chat.html is window 3.
     rollupOptions: {
       input: {
         main: fileURLToPath(new URL('./index.html', import.meta.url)),
         cabinet: fileURLToPath(new URL('./cabinet.html', import.meta.url)),
+        chat: fileURLToPath(new URL('./chat.html', import.meta.url)),
       },
     },
   },
