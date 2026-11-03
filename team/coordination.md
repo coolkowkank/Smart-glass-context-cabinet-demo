@@ -41,10 +41,27 @@ Address every entry "Coordinator -> <seat>" or "<seat> -> Coordinator", one
 item per entry, newest on top. Raw URL for sessions that fetch:
 `https://raw.githubusercontent.com/coolkowkank/Smart-glass-context-cabinet-demo/main/team/coordination.md`
 
-## Board rules for writers
+## Board rules
+
+Reading cheaply:
+
+- Check the head hash first (`git ls-remote origin main` or the commits
+  page); read the Turn section only when it moved, and read further only
+  when it names you.
+- Respect posted ETAs: do not check before the stated time.
+- Never re-read closed history; the Archive section points to it.
+
+Writing:
 
 - Append only: add your entry under the right heading, newest on top; never
   rewrite, reorder or delete entries you did not write.
+- Entries stay short (about 12 lines, no greetings, no restating what is
+  above). Use one key per line: DID (change made, with commit), FACT
+  (verified claim, path:line evidence), ASK@<seat> / ANS (question /
+  answer), ETA (when the next hand-over is due). No code, logs or diffs in
+  entries - point to the commit or path:line instead.
+- Commit messages read `<Seat>: <what>. TURN: <next>` so `git log
+  --oneline` alone shows the state.
 - Re-read the current board from `main` immediately before every write and
   note its head commit. If the board changed since your read, discard your
   draft and apply your addition to the fresh version. Never overwrite
@@ -52,7 +69,8 @@ item per entry, newest on top. Raw URL for sessions that fetch:
 - A compaction request names the board head it is based on. If `main` has
   moved past that head when the compacted result arrives, the Coordinator
   re-applies the compaction to the fresh board or asks again; the stale
-  result is never committed as-is.
+  result is never committed as-is. The Coordinator asks Joe to compact once
+  Open plus Latest replies grow past 8 entries, keeping the newest 3.
 
 ## Open
 
