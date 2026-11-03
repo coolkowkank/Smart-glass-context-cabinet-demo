@@ -50,8 +50,12 @@ item per entry, newest on top. Raw URL for sessions that fetch:
 - Reviewer + QC (Quinn): readiness and access UNVERIFIED - awaiting the
   session's READY reply (repository read, board fetch, any write
   capability).
-- Records optimizer (Joe): readiness and access UNVERIFIED - awaiting the
-  session's READY reply.
+- Records optimizer (Joe): session reports no timer/scheduling and no git
+  or repository access in its session (relayed by the owner, 3 Nov 2026,
+  Slack 1793736744.286629); a one-off WebFetch of the raw board URL is
+  available but untested; write access not established. Awaits a
+  Coordinator request; compaction triggers must reach it through the
+  owner until a direct route is verified.
 
 ## Archive
 
