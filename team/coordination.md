@@ -13,9 +13,10 @@ NEXT: Quinn - reply READY with the Step 0 access check from
 [prompts/reviewer-claude.md](prompts/reviewer-claude.md) when you read
 this.
 
-Whoever reads this board: act only when the NEXT line names your seat or
-an Open entry is addressed to you. Otherwise wait - reading is always
-allowed, acting is by turn. The Coordinator updates TURN/NEXT on every
+Whoever reads this board: work only when the NEXT line names your seat or
+an Open entry is addressed to you. Reading and monitoring are always
+allowed, whatever the turn, and a starting session's READY reply is always
+in order. Otherwise wait. The Coordinator updates TURN/NEXT on every
 write; a seat's reply names who is next. This board turn says who acts
 next here; it is separate from batch turn tokens
 ([templates/batch-handoff.md](templates/batch-handoff.md)), which say who
