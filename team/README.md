@@ -28,16 +28,25 @@ The live seat table, readiness and access tracking is in
   Instinct-to-Instinct connection, bounded to launcher/startup readiness
   until an exact bounded assignment follows. The sole writer: one batch per
   written turn token.
-- **Reviewer + Independent QC** - one Claude session, opened by the owner
-  with [prompts/reviewer-claude.md](prompts/reviewer-claude.md). Written
-  findings on every batch; QC verdicts on the consequential calls. A QC fail
-  stands - the Coordinator cannot override it. The owner's Claude token
-  budget is limited, so reviews stay short and focused.
+- **Reviewer + Independent QC** - one Claude session, "Quinn", opened by
+  the owner with [prompts/reviewer-claude.md](prompts/reviewer-claude.md).
+  Written findings on every batch; QC verdicts on the consequential calls.
+  A QC fail stands - the Coordinator cannot override it. The owner's Claude
+  token budget is limited, so reviews stay short and focused.
+- **Records optimizer** - one Claude session, "Joe", opened by the owner
+  with [prompts/records-joe.md](prompts/records-joe.md). Compacts the
+  coordination board on the Coordinator's request and archives closed
+  items under [records/](records/). Authors nothing else.
 - **Architect** - not separately staffed for this small scripted demo. The
   Coordinator drafts each batch's spec and acceptance criteria from the
   brief; QC gates the initial spec and any material spec change.
 
 ## How work flows
+
+Assignments, review requests, replies, findings and verdicts flow through
+the coordination board ([coordination.md](coordination.md)), maintained by
+the Coordinator; the Records optimizer keeps it short and archives closed
+items under [records/](records/).
 
 1. The owner releases work for build; the brief records what is agreed.
 2. The Coordinator issues a written turn token

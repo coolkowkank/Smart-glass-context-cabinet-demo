@@ -25,6 +25,12 @@ Delegated:
   Reviewer seat; Christina is proposed as Builder.
 - Earlier, completed: replace the README with the agreed three-window demo
   concept (commit 596dc6e).
+- Manage the delivery team without relaying through him: "I don't want to
+  manage. You are the coordinator, and you will manage them." (message
+  1793736253.533859); team communication through a dedicated .md file
+  (message 1793736284.706799); two named Claude sessions - Quinn (Reviewer
+  + QC) and Joe (Records optimizer for the communication file) - with
+  copy-ready prompts (messages 1793736089.368139 and 1793736336.530939).
 
 Always ask (never delegated by default):
 

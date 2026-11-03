@@ -7,7 +7,8 @@ Concept owner: Habibil. Available delivery resources (per the owner, 3 Nov
 | --- | --- | --- | --- | --- |
 | Coordinator (+ owner's personal robot, + Records) | Instinct "Telkomsel" (`instinct-telkomsel`) | Habibil | READY | Read: VERIFIED. Write: VERIFIED (branch `main`, commits e86afd1 and 53ffc38) |
 | Builder | Instinct "Christina" (`instinct-christina`) | her owner, via the Instinct-to-Instinct connection | ACCEPTED by Christina's Instinct under her owner's authority, 3 Nov 2026, via the accepted Instinct-to-Instinct connection - bounded to launcher/startup readiness only; no application implementation or repository writes released yet, awaiting an exact bounded assignment | GitHub push access exists as a technical capability (invitation accepted); it grants no operational scope. Write access marked VERIFIED only after a real batch write under a turn token, and only once the Builder seat is accepted |
-| Reviewer + Independent QC | Claude session, opened by Habibil from [prompts/reviewer-claude.md](prompts/reviewer-claude.md) | Habibil | UNCONNECTED | Read-only on application source; details unknown until its Step 0 access check. Owner constraint: limited Claude tokens, reviews kept short and focused |
+| Reviewer + Independent QC | Claude session "Quinn", opened by Habibil from [prompts/reviewer-claude.md](prompts/reviewer-claude.md) | Habibil | UNCONNECTED | Read-only on application source; board fetch and any board write unknown until its Step 0 access check. Owner constraint: limited Claude tokens, reviews kept short and focused |
+| Records optimizer | Claude session "Joe", opened by Habibil from [prompts/records-joe.md](prompts/records-joe.md) | Habibil | UNCONNECTED | Board and records write unknown until its Step 0 access check; no application writes. Runs only on the Coordinator's compaction requests to keep token spend low |
 
 ## Notes
 
@@ -25,6 +26,11 @@ Concept owner: Habibil. Available delivery resources (per the owner, 3 Nov
 - Architect is not separately staffed (small scripted demo). The Coordinator
   drafts each batch's spec and acceptance criteria from the agreed brief; QC
   gates the initial spec and any material spec change.
+- The Claude sessions are named Quinn (Reviewer + QC) and Joe (Records
+  optimizer) by the owner, 3 Nov 2026 (Slack 1793736089.368139 and
+  1793736336.530939). Joe is a called-in optimizer for the Records function,
+  which Telkomsel still holds; Joe makes no decisions and authors no
+  application work, findings or verdicts.
 - Readiness: UNCONNECTED until the seat's session gives a correct readiness
   reply, then READY. Access is tracked per capability and marked VERIFIED
   only after it has been seen working. READY does not mean access works.

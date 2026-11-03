@@ -30,3 +30,9 @@ single-owner project.
 9. Ask only when blocked: routine work inside a delegation does not wait for
    answers. Blockers are asked once, batched, with options and a
    recommendation.
+10. The team's one queue is the coordination board
+    ([coordination.md](coordination.md)): assignments, review requests,
+    replies, findings and verdicts are recorded there, newest on top. The
+    Records optimizer compacts it on the Coordinator's request and archives
+    closed items under [records/](records/), preserving decisions,
+    authority references, evidence and unresolved findings.
