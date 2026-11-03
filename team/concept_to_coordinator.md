@@ -50,8 +50,9 @@ User -> Personal Agent in the smart glasses -> Abel -> CM -> Nordea
 
 - One repository: `coolkowkank/Smart-glass-context-cabinet-demo`,
   branch `main`.
-- Resources: one Claude session (Builder), two Instincts (Telkomsel as
-  Coordinator, Christina as Reviewer + Independent QC).
+- Resources: one Claude session (Reviewer + Independent QC, token-limited -
+  reviews kept short and focused), two Instincts (Telkomsel as Coordinator,
+  Christina proposed as Builder).
 - Single writer under the written turn token; written findings on every
   batch; QC gates the consequential calls.
 - Which storyboard moments the demo will use is still open (owner decision).
@@ -72,6 +73,7 @@ User -> Personal Agent in the smart glasses -> Abel -> CM -> Nordea
 | 3 Nov 2026 | README defines the three-window scripted demo concept: window 1 built, windows 2 and 3 planned, staged data only | Habibil (Slack thread D0CDS44F00K/1793726819.689719; README commit 596dc6e) |
 | 3 Nov 2026 | Team formed with one Claude + two Instincts | Habibil (Slack 1793735087.305509) |
 | 3 Nov 2026 | Telkomsel (instinct-telkomsel) is the Coordinator for this team | Habibil (Slack 1793735105.232469) |
+| 3 Nov 2026 | Claude assigned to the Reviewer seat given the owner's limited Claude tokens; Christina proposed as Builder; Independent QC derived to Claude (neither Builder nor Coordinator) | Habibil (Slack 1793735537.845099) |
 
 ## Change history
 

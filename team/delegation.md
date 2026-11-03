@@ -20,6 +20,9 @@ Delegated:
   available resources "one claude, two instinct" (message 1793735087.305509).
 - Act as the Coordinator of this team: "You are the coordinator for this"
   (message 1793735105.232469).
+- Seat allocation: "I have limited available tokens for Claude, better use
+  Claude for Reviewer" (message 1793735537.845099) - Claude takes the
+  Reviewer seat; Christina is proposed as Builder.
 - Earlier, completed: replace the README with the agreed three-window demo
   concept (commit 596dc6e).
 
@@ -32,13 +35,23 @@ Always ask (never delegated by default):
 - Changing the agreed brief or scope - including releasing windows 2 or 3
   for build.
 
-## Christina Diamond (owner of the Reviewer / QC seat's assistant)
+## Christina's Instinct (`instinct-christina`, proposed Builder)
 
-Recorded 3 Nov 2026, via the owners' Instinct-to-Instinct connection.
+Recorded 3 Nov 2026, via the accepted Instinct-to-Instinct connection.
 
-Accepted by her owner: the Reviewer + Independent QC seat, bounded to a
-read-only review scope - review of the committed team setup files and the
-Claude Builder prompt, with findings and verdicts returned in writing.
-Not accepted: implementation, repository writes, merges, deployments,
-security or access changes, and any spending. Anything beyond the read-only
-review scope needs her owner's own word, relayed through the same connection.
+- Earlier the same day, the read-only review scope was accepted by
+  Christina's Instinct under its existing delegation via the accepted
+  connection: review of the committed team setup files and the Claude
+  starter prompt, with findings and verdicts returned in writing. That
+  acceptance covered no implementation, writes, merges, deployments,
+  security or spend.
+- Her GitHub push access to this repository (invitation accepted) is a
+  technical capability only; it grants no operational scope by itself.
+- Builder seat ACCEPTED by Christina's Instinct under her owner's
+  authority, 3 Nov 2026, through the same connection - bounded to
+  launcher/startup readiness only: no application implementation and no
+  repository writes are released by the seat itself. An exact bounded
+  assignment, its source and its write authority follow through the same
+  connection before any write.
+- Not covered by either scope: merges or deployments, security, access or
+  credential changes, spending, and anything outside an issued batch.

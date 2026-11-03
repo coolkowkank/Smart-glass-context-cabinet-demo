@@ -23,15 +23,19 @@ The live seat table, readiness and access tracking is in
 - **Coordinator** - Instinct "Telkomsel" (`instinct-telkomsel`), assigned by
   the owner on 3 Nov 2026. Also the owner's personal robot (captures his
   decisions into the brief) and Records (mostly-idle secondary job).
-- **Builder** - one Claude session, opened by the owner with
-  [prompts/builder-claude.md](prompts/builder-claude.md). The sole writer:
-  one batch per written turn token.
-- **Reviewer + Independent QC** - Instinct "Christina" (`instinct-christina`).
-  Written findings on every batch; QC verdicts on the consequential calls.
-  A QC fail stands - the Coordinator cannot override it.
+- **Builder** - Instinct "Christina" (`instinct-christina`), accepted by her
+  Instinct under her owner's authority on 3 Nov 2026 through the owners'
+  Instinct-to-Instinct connection, bounded to launcher/startup readiness
+  until an exact bounded assignment follows. The sole writer: one batch per
+  written turn token.
+- **Reviewer + Independent QC** - one Claude session, opened by the owner
+  with [prompts/reviewer-claude.md](prompts/reviewer-claude.md). Written
+  findings on every batch; QC verdicts on the consequential calls. A QC fail
+  stands - the Coordinator cannot override it. The owner's Claude token
+  budget is limited, so reviews stay short and focused.
 - **Architect** - not separately staffed for this small scripted demo. The
-  Coordinator drafts each batch's spec and acceptance criteria from the brief;
-  QC gates the initial spec and any material spec change.
+  Coordinator drafts each batch's spec and acceptance criteria from the
+  brief; QC gates the initial spec and any material spec change.
 
 ## How work flows
 
