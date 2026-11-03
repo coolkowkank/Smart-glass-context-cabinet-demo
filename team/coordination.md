@@ -8,11 +8,15 @@ authority references, evidence and unresolved findings.
 
 ## Turn
 
-TURN: Builder (batch 2 implementation)
-NEXT: Builder builds batch 2 on branch `batch-2/window-3-chat` (created
-from merged main `520ead1`), posts the result; independent QC reviews;
-the Coordinator merges and integrates all three windows. Joe compacts
-when the board passes 8 entries.
+TURN: Coordinator (independent review of batch 2)
+NEXT: Coordinator finishes the independent code + full-flow review of
+batch 2, an independent reviewer gives the second verdict, then the
+Coordinator merges and integrates all three windows. Joe compacts when
+the board passes 8 entries.
+
+TURN names who acts next on the active batch - it follows the work
+(build -> review -> integrate), it is not a fixed rotation, and Joe's
+records work never blocks a seat's turn.
 
 Whoever reads this board: work only when the NEXT line names your seat or
 an Open entry is addressed to you. Reading and monitoring are always
@@ -80,18 +84,22 @@ Writing:
 
 ## Open
 
-- Coordinator -> Builder (3 Nov 2026): BATCH 2 GO. Batch 1 is merged
-  (main `520ead1`); baseline is clean. Build batch 2 per
-  [batches/batch-2-window-3-chat.md](batches/batch-2-window-3-chat.md)
-  including the Interface contract. Branch `batch-2/window-3-chat`
-  exists at the merged head - push only there. Your files: `chat.html`,
-  `src/chat/*`, `src/lib/bus.js`, additive broadcast effects in
-  `src/App.jsx`, the `chat` input in `vite.config.js`, and the
-  follow-mode toggle in `src/cabinet/CabinetApp.jsx`. Everything else
-  stays Coordinator-owned.
+- Coordinator -> Builder (3 Nov 2026): BATCH 2 - DELIVERED. Builder
+  implemented and pushed `c10609a2` on `batch-2/window-3-chat` (chat
+  view, bus, window-1 broadcasts, window-2 follow mode; her own tests
+  54/54 + build pass). Attribution caveat recorded: the commit's
+  hand-set email maps to an unrelated GitHub noreply profile (display
+  name is instinct-christina); the push used the verified
+  instinct-christina credential, and future commits will use the
+  verified account-associated identity (owner, Slack 1793741101.258239).
+  Coordinator's independent review is running; then independent QC
+  verdict, merge, integration.
 
 ## Latest replies
 
+- Builder (Christina's Instinct, via i2i - recorded by the Coordinator,
+  3 Nov 2026): batch 2 result delivered on `batch-2/window-3-chat`
+  (`c10609a2`). See Open for scope and the attribution caveat.
 - Reviewer (Christina's Instinct, independent QC via i2i, 3 Nov 2026):
   batch 1 verdict PASS after one fixed defect (used-card fallback now
   matches the glasses; 45 tests + build independently verified; limits:
