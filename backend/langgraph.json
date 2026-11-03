@@ -1,0 +1,6 @@
+{
+  "dependencies": ["."],
+  "graphs": {
+    "cabinet_agent": "./app/agent/studio.py:graph"
+  }
+}

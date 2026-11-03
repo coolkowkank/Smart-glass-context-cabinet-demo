@@ -1,0 +1,179 @@
+{
+  "_note": "What Lauri's Personal AI proposes when he taps Sync AI in the Cabinet (fictional). Shared by the backend and the offline UI. The flat goal only exists in his Personal AI until he approves it.",
+  "agent_name": "Lauri's Personal AI",
+  "protocol": "Zero-Trust Context Bridge · MCP",
+  "handshake": [
+    "Face ID verified",
+    "Context request sent (goals, housing, spending shifts, outdated goals)",
+    "4 proposals extracted on-device"
+  ],
+  "privacy_guarantees": [
+    "Raw calendar events, notes and partner chats never leave your device.",
+    "Only the cards you approve are saved to your Context Cabinet.",
+    "Advisory enclave: synced context can't be read by Nordea credit underwriting."
+  ],
+  "proposals": [
+    {
+      "id": "sync-flat",
+      "action": "upsert_goal",
+      "target_entry_id": "flat",
+      "side": "customer",
+      "source_badge": "Side A · From Personal AI",
+      "title": "Add your flat goal",
+      "default_approved": true,
+      "summary": "2BR flat near the metro with your partner, in 18 months.",
+      "impact": "New goal: €32k deposit by spring 2028.",
+      "why": {
+        "reason": "You and your partner have been planning this for months, but your Cabinet didn't know.",
+        "cited": [
+          {
+            "source": "notes",
+            "label": "Notes",
+            "detail": "'Home buying 2028'"
+          },
+          {
+            "source": "calendar",
+            "label": "Calendar",
+            "detail": "3 flat viewings near the metro, Sep–Oct"
+          },
+          {
+            "source": "chat",
+            "label": "Partner chat",
+            "detail": "'Let's aim for spring 2028'"
+          }
+        ]
+      },
+      "entry": {
+        "id": "flat",
+        "source": "customer",
+        "status": "active",
+        "kind": "flat_goal",
+        "title": "Flat goal",
+        "detail": "Flat near the metro with my partner, in 18 months",
+        "data": {
+          "target_deposit": 32000,
+          "horizon_months": 18,
+          "orb_label": "2BR flat near metro · 18 mo",
+          "lunch_cap": 12
+        },
+        "created": "2026-10-29"
+      },
+      "when_exists": {
+        "title": "Complete your flat goal",
+        "summary": "Adds your partner, the metro area and the €32k deposit.",
+        "impact": "Your goal gets a real target: €32k by spring 2028."
+      }
+    },
+    {
+      "id": "sync-car-stale",
+      "action": "archive_stale",
+      "target_entry_id": "car",
+      "side": "customer",
+      "source_badge": "Staleness fix · AI verified",
+      "title": "Archive the 2023 car goal",
+      "default_approved": true,
+      "summary": "Nothing in your life points to a car anymore.",
+      "impact": "Frees the 25% of savings it reserved.",
+      "why": {
+        "reason": "This goal still steers the agent, but you haven't touched it since 2023.",
+        "cited": [
+          {
+            "source": "notes",
+            "label": "Notes & browsing",
+            "detail": "No car research since May 2023"
+          },
+          {
+            "source": "nordea",
+            "label": "Nordea",
+            "detail": "€0 added to this goal in 18 months"
+          }
+        ]
+      }
+    },
+    {
+      "id": "sync-dining-override",
+      "action": "override_signal",
+      "target_entry_id": "dining",
+      "side": "nordea",
+      "override_reason": "Temporary: Q3 busy work sprint",
+      "source_badge": "Side B link · Nordea + Personal AI",
+      "title": "Explain the dining spike",
+      "default_approved": true,
+      "summary": "Aug–Oct restaurant spending was a Q3 work sprint.",
+      "impact": "Nordea stops treating it as permanent. Loan estimate restored.",
+      "why": {
+        "reason": "Nordea saw +€420/mo on restaurants and assumed it would last. Your calendar shows why it won't.",
+        "cited": [
+          {
+            "source": "nordea",
+            "label": "Nordea",
+            "detail": "+€420/mo on restaurants, Aug–Oct"
+          },
+          {
+            "source": "calendar",
+            "label": "Calendar",
+            "detail": "38 late-evening launch blocks"
+          },
+          {
+            "source": "nordea",
+            "label": "Nordea's interest",
+            "detail": "Budgeting tool + lower loan estimate"
+          }
+        ]
+      }
+    },
+    {
+      "id": "sync-salary-ack",
+      "action": "acknowledge_signal",
+      "target_entry_id": "salary",
+      "side": "nordea",
+      "source_badge": "Side B · From Nordea",
+      "title": "Confirm your raise",
+      "default_approved": true,
+      "summary": "€3,600 → €4,050/mo. Savings rate still 18%.",
+      "impact": "Lets the agent plan your raise into the flat.",
+      "why": {
+        "reason": "Nordea noticed the raise. Your contract confirms it, so the agent can rely on it.",
+        "cited": [
+          {
+            "source": "nordea",
+            "label": "Nordea",
+            "detail": "Salary deposits since April"
+          },
+          {
+            "source": "files",
+            "label": "Files",
+            "detail": "Employment contract update"
+          }
+        ]
+      }
+    }
+  ],
+  "filtered_out": [
+    {
+      "id": "filtered-vineyard",
+      "category": "Hallucination guardrail",
+      "raw_snippet": "Partner chat, 14 Oct: 'Let's quit our jobs and buy a vineyard in Italy'",
+      "reason_blocked": "Read as a joke, not a financial goal. Sync only proposes; it never auto-commits."
+    },
+    {
+      "id": "filtered-health",
+      "category": "Advisory enclave firewall",
+      "raw_snippet": "Calendar: occupational health check-up · startup interview",
+      "reason_blocked": "Health and job-risk details are stripped on-device and never reach the bank."
+    }
+  ],
+  "reality_checks": [
+    {
+      "id": "rc-dining",
+      "category": "Reality-check prompt",
+      "applies_to": "dining",
+      "after_days": 60,
+      "rule": "If restaurant spending stays high 60 days after this note, the Cabinet asks you again instead of trusting it forever."
+    }
+  ],
+  "notification": {
+    "title": "Lauri's Personal AI",
+    "body": "4 updates for your Cabinet"
+  }
+}

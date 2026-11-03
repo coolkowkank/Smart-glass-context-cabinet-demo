@@ -1,0 +1,129 @@
+{
+  "_note": "Expected readiness for Lauri's cabinet. Backend (pytest) and offline frontend (vitest) both check against this file, so the two can never drift apart.",
+  "cases": [
+    {
+      "name": "before sync: the flat goal only lives in the Personal AI",
+      "state": {
+        "context_on": true,
+        "car_archived": false,
+        "dining_overridden": false
+      },
+      "expect": {
+        "known": false,
+        "missing": [
+          "flat_goal"
+        ]
+      }
+    },
+    {
+      "name": "start: car goal active, dining not corrected",
+      "state": {
+        "context_on": true,
+        "car_archived": false,
+        "dining_overridden": false,
+        "flat": true
+      },
+      "expect": {
+        "known": true,
+        "months": 18,
+        "spare": 0,
+        "on_track": false,
+        "loan_estimate_reduced": true,
+        "monthly_savings": 729,
+        "flat_monthly": 547,
+        "tip_monthly": 759,
+        "tip_months": 13,
+        "gap": 10000
+      }
+    },
+    {
+      "name": "car goal archived",
+      "state": {
+        "context_on": true,
+        "car_archived": true,
+        "dining_overridden": false,
+        "flat": true
+      },
+      "expect": {
+        "known": true,
+        "months": 14,
+        "spare": 4,
+        "on_track": true,
+        "loan_estimate_reduced": true,
+        "monthly_savings": 729,
+        "flat_monthly": 729,
+        "tip_monthly": 1013,
+        "tip_months": 10,
+        "gap": 10000
+      }
+    },
+    {
+      "name": "car archived and dining corrected",
+      "state": {
+        "context_on": true,
+        "car_archived": true,
+        "dining_overridden": true,
+        "flat": true
+      },
+      "expect": {
+        "known": true,
+        "months": 14,
+        "spare": 4,
+        "on_track": true,
+        "loan_estimate_reduced": false,
+        "flat_monthly": 729,
+        "tip_monthly": 1013,
+        "tip_months": 10
+      }
+    },
+    {
+      "name": "dining corrected only",
+      "state": {
+        "context_on": true,
+        "car_archived": false,
+        "dining_overridden": true,
+        "flat": true
+      },
+      "expect": {
+        "known": true,
+        "months": 18,
+        "spare": 0,
+        "on_track": false,
+        "loan_estimate_reduced": false,
+        "flat_monthly": 547,
+        "tip_months": 13
+      }
+    },
+    {
+      "name": "context off",
+      "state": {
+        "context_on": false,
+        "car_archived": false,
+        "dining_overridden": false,
+        "flat": true
+      },
+      "expect": {
+        "known": false
+      }
+    },
+    {
+      "name": "after one-click Personal AI sync",
+      "state": {
+        "context_on": true,
+        "car_archived": false,
+        "dining_overridden": false,
+        "synced": true
+      },
+      "expect": {
+        "known": true,
+        "months": 14,
+        "spare": 4,
+        "on_track": true,
+        "loan_estimate_reduced": false,
+        "flat_monthly": 729,
+        "tip_monthly": 1013,
+        "tip_months": 10
+      }
+    }
+  ]
+}

@@ -1,0 +1,21 @@
+# secrets
+.env
+.env.*
+!.env.example
+
+# python
+__pycache__/
+*.pyc
+.venv/
+.pytest_cache/
+.langgraph_api/
+
+# node
+node_modules/
+frontend/dist/
+frontend/dist-single/
+
+# os / editors
+.DS_Store
+.idea/
+.vscode/

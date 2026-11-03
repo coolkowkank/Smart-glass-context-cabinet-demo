@@ -1,0 +1,194 @@
+{
+  "user_id": "lauri",
+  "name": "Lauri",
+  "context_on": true,
+  "entries": [
+    {
+      "id": "car",
+      "source": "customer",
+      "status": "stale",
+      "kind": "car_goal",
+      "title": "Car goal",
+      "detail": "Save for a car",
+      "data": {
+        "reserve_share": 0.25,
+        "added_last_18m": 0,
+        "orb_label": "Save for a car · 2023",
+        "target_price": 15000,
+        "saved": 0
+      },
+      "created": "2023-05-14"
+    },
+    {
+      "id": "salary",
+      "source": "nordea",
+      "status": "active",
+      "kind": "income",
+      "title": "Salary +12%",
+      "detail": "Salary +12% six months ago (€3,600 → €4,050/mo). Savings rate still 18%.",
+      "data": {
+        "monthly": 4050,
+        "previous": 3600,
+        "savings_rate": 0.18,
+        "audit": [
+          [
+            {
+              "text": "Seen: ",
+              "source": null,
+              "tone": null
+            },
+            {
+              "text": "€3,600 → €4,050/mo",
+              "source": "nordea",
+              "tone": null
+            },
+            {
+              "text": ", since April",
+              "source": null,
+              "tone": null
+            }
+          ],
+          [
+            {
+              "text": "Nordea's interest: ",
+              "source": "nordea",
+              "tone": null
+            },
+            {
+              "text": "savings and loan offers",
+              "source": null,
+              "tone": null
+            }
+          ],
+          [
+            {
+              "text": "Accurate. ",
+              "source": null,
+              "tone": null
+            },
+            {
+              "text": "Nothing to fix.",
+              "source": null,
+              "tone": "good"
+            }
+          ]
+        ],
+        "orb_label": "+12% salary hike"
+      }
+    },
+    {
+      "id": "asp",
+      "source": "nordea",
+      "status": "active",
+      "kind": "savings",
+      "title": "ASP €22k",
+      "detail": "€22,000 in ASP account. Current loan paid off in 2 years.",
+      "data": {
+        "balance": 22000,
+        "loan_payoff_years": 2,
+        "audit": [
+          [
+            {
+              "text": "Seen: ",
+              "source": null,
+              "tone": null
+            },
+            {
+              "text": "€22,000 in ASP",
+              "source": "nordea",
+              "tone": null
+            },
+            {
+              "text": ", loan ends in 2 yrs",
+              "source": null,
+              "tone": null
+            }
+          ],
+          [
+            {
+              "text": "Nordea's interest: ",
+              "source": "nordea",
+              "tone": null
+            },
+            {
+              "text": "first-home loan terms",
+              "source": null,
+              "tone": null
+            }
+          ],
+          [
+            {
+              "text": "Accurate. ",
+              "source": null,
+              "tone": null
+            },
+            {
+              "text": "Nothing to fix.",
+              "source": null,
+              "tone": "good"
+            }
+          ]
+        ],
+        "orb_label": "€22k ASP"
+      }
+    },
+    {
+      "id": "dining",
+      "source": "nordea",
+      "status": "needs_review",
+      "kind": "spending",
+      "title": "Dining +45%",
+      "detail": "Dining spend +45% for 3 months",
+      "data": {
+        "category": "dining",
+        "change_pct": 45,
+        "extra_monthly": 420,
+        "window": "Aug–Oct",
+        "audit": [
+          [
+            {
+              "text": "Seen: ",
+              "source": null,
+              "tone": null
+            },
+            {
+              "text": "+€420/mo",
+              "source": "nordea",
+              "tone": null
+            },
+            {
+              "text": ", Aug–Oct",
+              "source": null,
+              "tone": null
+            }
+          ],
+          [
+            {
+              "text": "Nordea's interest: ",
+              "source": "nordea",
+              "tone": null
+            },
+            {
+              "text": "budgeting tool + lower loan estimate",
+              "source": null,
+              "tone": null
+            }
+          ],
+          [
+            {
+              "text": "Accurate on average. ",
+              "source": null,
+              "tone": null
+            },
+            {
+              "text": "Wrong for you.",
+              "source": null,
+              "tone": "warn"
+            }
+          ]
+        ],
+        "orb_label": "3-mo restaurant spike"
+      }
+    }
+  ]
+}

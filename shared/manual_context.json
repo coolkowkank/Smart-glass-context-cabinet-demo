@@ -1,0 +1,25 @@
+{
+  "_note": "M5: what Lauri types into his Cabinet by hand (no Personal AI), and which Nordea signals relate to which goals.",
+  "text": "Buy a flat in 18 months",
+  "entry": {
+    "id": "flat",
+    "source": "customer",
+    "status": "active",
+    "kind": "flat_goal",
+    "title": "Flat goal",
+    "detail": "Buy a flat in 18 months",
+    "data": {
+      "horizon_months": 18,
+      "orb_label": "Flat · 18 mo"
+    },
+    "created": "2026-10-30"
+  },
+  "nordea_related": {
+    "flat_goal": [
+      "savings"
+    ],
+    "car_goal": [
+      "savings"
+    ]
+  }
+}

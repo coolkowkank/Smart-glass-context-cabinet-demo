@@ -1,0 +1,4 @@
+# Install only the provider you use.
+langchain-anthropic>=1.0,<2
+langchain-openai>=1.0,<2
+langchain-google-genai>=3.0,<5

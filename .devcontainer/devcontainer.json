@@ -1,0 +1,14 @@
+{
+  "name": "Nordea Context Cabinet",
+  "image": "mcr.microsoft.com/devcontainers/python:3.12",
+  "features": {
+    "ghcr.io/devcontainers/features/node:1": { "version": "22" }
+  },
+  "forwardPorts": [5173, 8000],
+  "portsAttributes": {
+    "5173": { "label": "Glasses UI", "onAutoForward": "openBrowser" },
+    "8000": { "label": "Agent API" }
+  },
+  "postCreateCommand": "pip install -r backend/requirements-dev.txt && (cd frontend && npm ci --no-audit --no-fund)",
+  "postAttachCommand": "echo 'Run: make dev   (API on :8000, UI on :5173)'"
+}

@@ -1,0 +1,170 @@
+{
+  "_note": "What the glasses read off the Field & Fork lunch menu (fictional). Shared by the backend agent and the offline UI.",
+  "id": "field-and-fork-lunch",
+  "restaurant": "Field & Fork",
+  "currency": "EUR",
+  "items": [
+    {
+      "id": "local-greens",
+      "name": "Local Greens",
+      "section": "Salads",
+      "price": 8.5
+    },
+    {
+      "id": "kale-caesar",
+      "name": "Kale Caesar",
+      "section": "Salads",
+      "price": 9.5
+    },
+    {
+      "id": "quinoa-veg",
+      "name": "Quinoa & Roasted Veg",
+      "section": "Salads",
+      "price": 10.5
+    },
+    {
+      "id": "sandwich-1",
+      "name": "Sandwich (under your finger)",
+      "section": "Sandwiches",
+      "price": 12.5
+    },
+    {
+      "id": "sandwich-2",
+      "name": "Sandwich (under your finger)",
+      "section": "Sandwiches",
+      "price": 13.5
+    },
+    {
+      "id": "sandwich-3",
+      "name": "Sandwich (under your finger)",
+      "section": "Sandwiches",
+      "price": 11.5
+    },
+    {
+      "id": "sweet-potato-fries",
+      "name": "Sweet Potato Fries",
+      "section": "Sides",
+      "price": 4.5
+    },
+    {
+      "id": "herb-slaw",
+      "name": "Herb Slaw",
+      "section": "Sides",
+      "price": 3.5
+    },
+    {
+      "id": "seasonal-pickles",
+      "name": "Seasonal Pickles",
+      "section": "Sides",
+      "price": 3.0
+    },
+    {
+      "id": "homestead-burger",
+      "name": "The Homestead Burger",
+      "section": "Chef's features",
+      "price": 14.5
+    },
+    {
+      "id": "harvest-bowl",
+      "name": "Harvest Bowl",
+      "section": "Chef's features",
+      "price": 13.5
+    },
+    {
+      "id": "lemon-cake",
+      "name": "Lemon Olive Oil Cake",
+      "section": "Chef's features",
+      "price": 7.5
+    },
+    {
+      "id": "casarecce-pasta",
+      "name": "Casarecce Pasta",
+      "section": "Chef's features",
+      "price": 15.0
+    },
+    {
+      "id": "house-lemonade",
+      "name": "House Lemonade",
+      "section": "Drinks",
+      "price": 4.25
+    },
+    {
+      "id": "iced-tea",
+      "name": "Iced Tea",
+      "section": "Drinks",
+      "price": 3.25
+    },
+    {
+      "id": "arnold-palmer",
+      "name": "Arnold Palmer",
+      "section": "Drinks",
+      "price": 3.75
+    },
+    {
+      "id": "sparkling-water",
+      "name": "Sparkling Water",
+      "section": "Drinks",
+      "price": 3.0
+    },
+    {
+      "id": "mexican-coke",
+      "name": "Mexican Coke",
+      "section": "Drinks",
+      "price": 3.5
+    },
+    {
+      "id": "local-kombucha",
+      "name": "Local Kombucha",
+      "section": "Drinks",
+      "price": 5.0
+    },
+    {
+      "id": "drip-coffee",
+      "name": "Drip Coffee",
+      "section": "Coffee",
+      "price": 2.75
+    },
+    {
+      "id": "iced-coffee",
+      "name": "Iced Coffee",
+      "section": "Coffee",
+      "price": 3.75
+    },
+    {
+      "id": "cappuccino",
+      "name": "Cappuccino",
+      "section": "Coffee",
+      "price": 4.0
+    },
+    {
+      "id": "latte",
+      "name": "Latte",
+      "section": "Coffee",
+      "price": 4.25
+    },
+    {
+      "id": "espresso",
+      "name": "Espresso",
+      "section": "Coffee",
+      "price": 2.75
+    },
+    {
+      "id": "almond-milk",
+      "name": "Almond Milk",
+      "section": "Add-ons",
+      "price": 0.75
+    },
+    {
+      "id": "extra-shot",
+      "name": "Extra Shot",
+      "section": "Add-ons",
+      "price": 0.75
+    },
+    {
+      "id": "vanilla-caramel",
+      "name": "Vanilla / Caramel",
+      "section": "Add-ons",
+      "price": 0.5
+    }
+  ]
+}

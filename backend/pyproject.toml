@@ -1,0 +1,10 @@
+[project]
+name = "nordea-context-cabinet-api"
+version = "0.1.0"
+description = "LangGraph agent and API behind the Nordea Context Cabinet smart-glasses prototype"
+requires-python = ">=3.11"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]
+addopts = "-q"
