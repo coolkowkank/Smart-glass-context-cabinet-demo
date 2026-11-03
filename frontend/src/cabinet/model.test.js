@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest'
-import { cardsFrom, kindIcon, partsText, sourceLabel } from './model'
+import { cardsFrom, kindIcon, partsText, sourceLabel, usedIds } from './model'
 
 const cab = {
   entries: [
@@ -32,6 +32,22 @@ describe('labels', () => {
   it('names the card source for the audience', () => {
     expect(sourceLabel('customer')).toBe('Lauri')
     expect(sourceLabel('nordea')).toBe('Nordea')
+  })
+})
+
+describe('usedIds (glasses parity, Orbit rule)', () => {
+  it('known answers use readiness citations', () => {
+    expect(usedIds({ readiness: { known: true, citations: ['flat', 'asp'] } })).toEqual(['flat', 'asp'])
+  })
+  it('M1/M2 anchored answer reads the old goal and salary', () => {
+    expect(usedIds({ readiness: { known: false }, anchored: { goal_id: 'car' } })).toEqual(['car', 'salary'])
+  })
+  it('M6 partial answer reads the typed goal and ASP', () => {
+    expect(usedIds({ readiness: { known: false }, partial: { goal_id: 'flat' } })).toEqual(['flat', 'asp'])
+  })
+  it('no answer means no used cards', () => {
+    expect(usedIds(null)).toEqual([])
+    expect(usedIds({ readiness: { known: false } })).toEqual([])
   })
 })
 

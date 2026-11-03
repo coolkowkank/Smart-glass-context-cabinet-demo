@@ -3,7 +3,7 @@ import Icon from '../components/Icon'
 import { Parts } from '../components/Overlays'
 import { C, MOMENTS, UID, demoStateFor, fromBubble } from '../config/moments'
 import { connect } from '../lib/api'
-import { cardsFrom, kindIcon, sourceLabel } from './model'
+import { cardsFrom, kindIcon, sourceLabel, usedIds } from './model'
 import './cabinet.css'
 
 // Window 2 - the Context Cabinet as the audience sees it: one card per
@@ -69,7 +69,7 @@ export default function CabinetApp() {
     return () => clearTimeout(t)
   }, [playing, m, api])
 
-  const citations = answer?.readiness?.citations || []
+  const citations = usedIds(answer)
   const { cited, other, archived } = cardsFrom(cabinet, citations)
   const hero = fromBubble(answer?.whisper?.bubble)
   const caption = answer?.whisper?.caption
