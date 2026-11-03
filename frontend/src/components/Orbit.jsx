@@ -219,16 +219,16 @@ export default function Orbit({ open, onClose, cabinet, answer, magnetOn, act, v
           </button>
           {!g.compact && (
             <>
-              <button className="osw glass-pill" aria-pressed={settings.camera} onClick={settings.toggleCamera} title="Use camera">
+              <button className="osw glass-pill oset" aria-pressed={settings.camera} onClick={settings.toggleCamera} title="Use camera">
                 <Icon name="camera" size={18} sw={2} /><span className="hidden sm:inline">Camera</span>
               </button>
-              <button className="osw glass-pill" aria-pressed={settings.realMic} onClick={settings.toggleRealMic} title="Listen with the real microphone">
+              <button className="osw glass-pill oset" aria-pressed={settings.realMic} onClick={settings.toggleRealMic} title="Listen with the real microphone">
                 <Icon name="mic" size={18} sw={2} /><span className="hidden sm:inline">Live mic</span>
               </button>
             </>
           )}
           {!g.compact && (
-            <button className="osw glass-pill" aria-pressed={settings.voiceOut} onClick={settings.toggleVoiceOut} title="Agent speaks its answers">
+            <button className="osw glass-pill oset" aria-pressed={settings.voiceOut} onClick={settings.toggleVoiceOut} title="Agent speaks its answers">
               <Icon name="speaker" size={18} sw={2} /><span className="hidden sm:inline">Voice</span>
             </button>
           )}
