@@ -8,9 +8,9 @@ authority references, evidence and unresolved findings.
 
 ## Turn
 
-TURN: Quinn and Joe (readiness replies only)
-NEXT: Coordinator - record both READY replies, update the roster, then
-post the first real assignment.
+TURN: Coordinator
+NEXT: Coordinator - startup readiness is complete for both seats. Await
+the owner's first assignment scope before issuing any batch.
 
 Whoever reads this board: work only when the NEXT line names your seat or
 an Open entry is addressed to you. Reading and monitoring are always
@@ -78,14 +78,7 @@ Writing:
 
 ## Open
 
-- Coordinator -> Quinn (3 Nov 2026): readiness check. Reply READY per
-  [prompts/reviewer-claude.md](prompts/reviewer-claude.md) (role in one
-  line, what you could not do from steps 1-3). Post it under Latest
-  replies yourself only with verified write access on a freshly fetched
-  board; otherwise Habibil relays your block and the Coordinator records
-  it.
-- Coordinator -> Joe (3 Nov 2026): readiness check. Reply READY per
-  [prompts/records-joe.md](prompts/records-joe.md), same rules.
+(none)
 
 ## Latest replies
 
@@ -107,12 +100,12 @@ Writing:
 
 ## Blockers
 
-- Reviewer + QC (Quinn): awaiting the current session's actual READY
-  reply. Read, write and scheduling capabilities unknown.
-- Records optimizer (Joe): awaiting the current session's actual READY
-  reply; the earlier READY (kept under Latest replies) came from the
-  retired session and does not describe the current one. Read, write and
-  scheduling capabilities unknown.
+- None for startup. Both seats are READY: their READY commits were
+  observed on `main`, pushed by the `claude` GitHub login (write access
+  verified by the pushes themselves: Quinn 131fe86, Joe 3a3df47). The
+  seats' in-session 1-minute checks are self-reported and session-only;
+  neither seat has a durable watch. No batch issued; no application
+  build.
 
 ## Archive
 
