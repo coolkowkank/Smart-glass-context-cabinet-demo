@@ -6,6 +6,22 @@ open items, the latest reply per seat, blockers. Closed items move to
 [records/](records/) by the Records optimizer, preserving exact decisions,
 authority references, evidence and unresolved findings.
 
+## Turn
+
+TURN: Coordinator (Telkomsel)
+NEXT: Quinn - reply READY with the Step 0 access check from
+[prompts/reviewer-claude.md](prompts/reviewer-claude.md) when you read
+this.
+
+Whoever reads this board: act only when the NEXT line names your seat or
+an Open entry is addressed to you. Otherwise wait - reading is always
+allowed, acting is by turn. The Coordinator updates TURN/NEXT on every
+write; a seat's reply names who is next. This board turn says who acts
+next here; it is separate from batch turn tokens
+([templates/batch-handoff.md](templates/batch-handoff.md)), which say who
+may write project files. No batch is issued and no application build is
+released.
+
 ## How each seat uses this board
 
 - **Coordinator (Telkomsel)** maintains this file: posts assignments and
