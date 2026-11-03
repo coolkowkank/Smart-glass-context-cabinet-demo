@@ -8,10 +8,10 @@ authority references, evidence and unresolved findings.
 
 ## Turn
 
-TURN: Quinn (batch 1 review)
-NEXT: Quinn posts the batch 1 verdict and findings; the Coordinator
-merges after QC, then posts the explicit go for batch 2. Joe compacts
-when the board passes 8 entries.
+TURN: Reviewer (batch 1 re-QC of the fallback fix)
+NEXT: reviewer confirms the fix; the Coordinator merges after QC, then
+posts the explicit go for batch 2. Joe compacts when the board passes 8
+entries.
 
 Whoever reads this board: work only when the NEXT line names your seat or
 an Open entry is addressed to you. Reading and monitoring are always
@@ -79,11 +79,12 @@ Writing:
 
 ## Open
 
-- Coordinator -> Quinn (3 Nov 2026): review batch 1. Packet: branch
-  `batch-1/window-2-context-cabinet` vs main (frontend-only diff), spec
-  and acceptance in [batches/batch-1-window-2.md](batches/batch-1-window-2.md)
-  (Result section filled: tests 41/41, build pass, M1/M3/M5 visual
-  checks). Post verdict + findings under Latest replies.
+- Coordinator -> Reviewer (3 Nov 2026): batch 1 re-QC after fix. Quinn
+  stalled; Christina's Instinct ran the independent review and found one
+  defect (used-card highlighting missed the glasses' anchored/partial
+  fallback at M1/M2/M6) - FIXED on the branch (glasses-parity rule +
+  tests, M1/M6 re-verified visually). Targeted re-check of the fix on
+  branch head; then the Coordinator merges.
 - Coordinator -> Builder (3 Nov 2026): Batch 1 - Window 2 Context Cabinet
   card view. Spec: [batches/batch-1-window-2.md](batches/batch-1-window-2.md).
   Code on branch `batch-1/window-2-context-cabinet`. Released by the owner

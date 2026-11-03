@@ -49,14 +49,20 @@ TURN: Coordinator (implementing)
   `frontend/src/cabinet/{main.jsx,CabinetApp.jsx,cabinet.css,model.js,model.test.js}`,
   `frontend/vite.config.js` (multi-page input: `main` + `cabinet`),
   `README.md` (window 2 status).
-- Tests run and results: `vitest run` 41/41 pass (5 new cabinet model
-  tests); `vite build` passes and emits both pages.
+- Tests run and results: `vitest run` 45/45 pass (9 new cabinet model
+  tests, incl. glasses-parity cases for the anchored and partial
+  fallbacks at M1/M2/M6); `vite build` passes and emits both pages.
 - Evidence: Coordinator visual check (headless Chrome against
   `vite preview`): M1 shows the wrong car-goal answer with the four
   starter cards; M3 shows "On track - ~14 mo" with Flat goal, Salary,
   ASP and Dining pulled into "Used in this answer" (cyan highlight) and
   the car goal in Archived; M5 shows the empty start state before
   add-by-hand; window 1 regression screenshot unchanged.
+- QC fix (independent review, 3 Nov 2026): "Used in this answer" now
+  mirrors the glasses' own rule (Orbit): known answers cite readiness
+  citations; pre-sync anchored answers mark the old goal + salary; a
+  hand-typed goal with no target marks the goal + ASP. Re-verified
+  visually at M1 and M6.
 - Known limitation: the stepper shows each moment's START state;
   intra-moment interactions (add, sync) arrive with the batch-2 follow
   mode. Deep-link: `/cabinet.html?m=N`.
