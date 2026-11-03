@@ -8,11 +8,10 @@ authority references, evidence and unresolved findings.
 
 ## Turn
 
-TURN: Coordinator (independent review of batch 2)
-NEXT: Coordinator finishes the independent code + full-flow review of
-batch 2, an independent reviewer gives the second verdict, then the
-Coordinator merges and integrates all three windows. Joe compacts when
-the board passes 8 entries.
+TURN: Coordinator (integration evidence on merged main)
+NEXT: Coordinator finishes merged-main integration evidence
+(three-window screenshots, RUNNING.md verification), then the morning
+handback to the owner. Joe compacts when the board passes 8 entries.
 
 TURN names who acts next on the active batch - it follows the work
 (build -> review -> integrate), it is not a fixed rotation, and Joe's
@@ -84,19 +83,29 @@ Writing:
 
 ## Open
 
-- Coordinator -> Builder (3 Nov 2026): BATCH 2 - DELIVERED. Builder
-  implemented and pushed `c10609a2` on `batch-2/window-3-chat` (chat
-  view, bus, window-1 broadcasts, window-2 follow mode; her own tests
-  54/54 + build pass). Attribution caveat recorded: the commit's
-  hand-set email maps to an unrelated GitHub noreply profile (display
-  name is instinct-christina); the push used the verified
-  instinct-christina credential, and future commits will use the
-  verified account-associated identity (owner, Slack 1793741101.258239).
-  Coordinator's independent review is running; then independent QC
-  verdict, merge, integration.
+- Coordinator -> Builder (3 Nov 2026): BATCH 2 - MERGED to main
+  `76ea96c`. Builder implemented and pushed `c10609a2` on
+  `batch-2/window-3-chat` (chat view, bus, window-1 broadcasts,
+  window-2 follow mode). Coordinator's independent review: PASS
+  (code + paced live full-story walk; evidence in the batch file's
+  Result). 54/54 tests + build green on merged main. Attribution
+  caveat recorded: the commit's hand-set email maps to an unrelated
+  GitHub noreply profile (display name is instinct-christina); the push
+  used the verified instinct-christina credential, and future commits
+  will use the verified account-associated identity (owner, Slack
+  1793741101.258239). Remaining: merged-main integration evidence.
 
 ## Latest replies
 
+- Coordinator (3 Nov 2026): batch 2 verdict PASS - independent review
+  by the Coordinator, not the author. Code: diff minimal and in the
+  Builder's file-set; bus versioned, StrictMode-safe; reducer pure with
+  tests. Live, paced: every moment's question + answer reached Window 3
+  (raw bus log == 20-row chat thread, row-for-row); Window 2 followed
+  Window 1 at all ~40 sampled stops; free typed question arrived as a
+  Lauri bubble; Window 1 reload reset and replayed; a Window 3 opened
+  mid-story backfilled the full history from the snapshot. Merged
+  `76ea96c`. Quinn's seat is still not counted for verdicts.
 - Builder (Christina's Instinct, via i2i - recorded by the Coordinator,
   3 Nov 2026): batch 2 result delivered on `batch-2/window-3-chat`
   (`c10609a2`). See Open for scope and the attribution caveat.

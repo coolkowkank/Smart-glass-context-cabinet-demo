@@ -60,9 +60,24 @@ TURN: Coordinator (batch 1 first; Builder prepares batch 2 read-only)
 
 ## Result
 
-- Files changed: (pending)
-- Tests run and results: (pending)
-- Evidence: (pending)
+- Files changed: 12 files, +293/-8, all inside the batch file-set
+  (`chat.html`, `src/chat/*`, `src/lib/bus.js`, `App.jsx` broadcast
+  effects, `vite.config.js` chat input, CabinetApp follow toggle, one
+  narrow follow-toggle rule in `cabinet.css`). Delivered as `c10609a2`
+  on `batch-2/window-3-chat`; merged to main as `76ea96c`.
+- Tests run and results: 54/54 vitest + production build green on the
+  branch and again on merged main. Independent Coordinator review
+  (not the author): PASS.
+- Evidence: paced full-story walk (M1-M11) with a raw bus monitor:
+  every moment's question + answer reached Window 3 (20 caption events
+  == 20-row chat thread, row-for-row); Window 2 followed Window 1 at
+  all ~40 sampled stops; free typed question from the chat input
+  arrived as a Lauri bubble; Window 1 reload reset and replayed; a
+  Window 3 opened mid-story backfilled full history via the snapshot
+  handshake. Hidden captions (cabinet/xray/sync-airlock open) are
+  deliberately not broadcast - accepted: parity with what the audience
+  sees and hears. Not tested: backend mode, audio out, single-file
+  build (all optional for the demo; offline localAgent is the default).
 
 ## Handoff
 
