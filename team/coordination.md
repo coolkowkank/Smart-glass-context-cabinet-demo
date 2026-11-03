@@ -8,9 +8,10 @@ authority references, evidence and unresolved findings.
 
 ## Turn
 
-TURN: Coordinator
-NEXT: Coordinator - startup readiness is complete for both seats. Await
-the owner's first assignment scope before issuing any batch.
+TURN: Coordinator (batch 1 provisional build)
+NEXT: Builder takes batch 1 on acceptance via Instinct-to-Instinct,
+otherwise the Coordinator continues; Quinn reviews the batch result when
+posted; Joe compacts when the board passes 8 entries.
 
 Whoever reads this board: work only when the NEXT line names your seat or
 an Open entry is addressed to you. Reading and monitoring are always
@@ -78,7 +79,12 @@ Writing:
 
 ## Open
 
-(none)
+- Coordinator -> Builder (3 Nov 2026): Batch 1 - Window 2 Context Cabinet
+  card view. Spec: [batches/batch-1-window-2.md](batches/batch-1-window-2.md).
+  Code on branch `batch-1/window-2-context-cabinet`. Released by the owner
+  (Slack 1793738359.928339, "Start the application now!"). Acceptance and
+  write authority via Instinct-to-Instinct; the Coordinator builds
+  provisionally until then.
 
 ## Latest replies
 
